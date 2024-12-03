@@ -20,6 +20,12 @@ export interface IMovie {
     video:             boolean;
     vote_average:      number;
     vote_count:        number;
+    genres:            Igenres[];
+}
+
+export interface Igenres {
+    id:     number;
+    name:   string
 }
 
 export enum OriginalLanguage {

@@ -3,10 +3,10 @@
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Box, CssBaseline, AppBar, Toolbar, IconButton, Button, Drawer, Divider, List, ListItem, ListItemButton, ListItemText, alpha, useTheme, Dialog, DialogTitle, DialogContent, DialogActions, Typography, Modal, Card, CardActions, CardContent, Grid2, TextField, InputAdornment } from '@mui/material';
+import { Box, CssBaseline, AppBar, Toolbar, IconButton, Button, Drawer, Divider, List, ListItem, ListItemButton, ListItemText, alpha, useTheme,  Typography, TextField, InputAdornment } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import MenuIcon from '@mui/icons-material/Menu';
-import { AccountCircle, ArrowBackOutlined, ArrowCircleLeftOutlined, ConfirmationNumberOutlined, MailOutlineOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
+import { AccountCircle, ArrowCircleLeftOutlined, ConfirmationNumberOutlined, MailOutlineOutlined, Visibility, VisibilityOff } from '@mui/icons-material';
 
 const drawerWidth = 200;
 
@@ -38,7 +38,6 @@ export const MainPrincipal: FC<Props> = ({ window }) => {
   const handleCloseCard = () => {
     setOpenCard(false);
   };
-
 
   const handleSelectOption = (option: string) => {
     setSelectedOption(option);
@@ -158,88 +157,114 @@ export const MainPrincipal: FC<Props> = ({ window }) => {
             padding: 1,
           }}
         >
-          <Grid container spacing={0}>
-            <Grid size={{ xs: 12, md: 8 }} >
-            <Box display="flex" flexDirection="column" justifyContent="center" alignItems="center" width="100%" p={5}>
+          <Grid container spacing={2}>
 
-              <Box display="flex" justifyContent="flex-start" alignItems="center" width="100%" mb={2}>
-                <Button
-                  startIcon={<ArrowCircleLeftOutlined />}
-                  variant="text"
-                  sx={{ color: 'white', textTransform: 'none', fontSize: '16px' }}
-                  onClick={handleCloseCard}
-                >
-                  Back
-                </Button>
-              </Box>
+            <Grid size={{ xs: 12, md: 8}} >
+              <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                width="100%"
+                p={3}
+              >
 
-              <Box display="flex" gap={2} mb={2} mt={5}>
-                <Button
-                  variant={selectedOption === 'Option 1' ? 'contained' : 'outlined'}
-                  color={selectedOption === 'Option 1' ? 'secondary' : 'primary'}
-                  onClick={() => handleSelectOption('Option 1')}
+                <Box
+                  display="flex"
+                  justifyContent="flex-start"
+                  alignItems="center"
+                  width="100%"
+                  mb={2}
                 >
-                  Sign up
-                </Button>
-                <Button
-                  variant={selectedOption === 'Option 2' ? 'contained' : 'outlined'}
-                  color={selectedOption === 'Option 2' ? 'secondary' : 'primary'}
-                  onClick={() => handleSelectOption('Option 2')}
-                >
-                  Log in
-                </Button>
-              </Box>
-
-              {
-                selectedOption === 'Option 1' ? (
-                <Box display="flex" flexDirection="column" mt={25} gap={15}>
                   <Button
-                  fullWidth
-                  variant="contained"
-                  endIcon={<MailOutlineOutlined />}
-                  color='secondary'
-                  sx={{
-                    p:2
-                  }}
+                    startIcon={<ArrowCircleLeftOutlined />}
+                    variant="text"
+                    sx={{
+                      color: 'white',
+                      textTransform: 'none',
+                      fontSize: '16px',
+                    }}
+                    onClick={handleCloseCard}
                   >
-                  Register with your Email
+                    Back
                   </Button>
-                  <Typography variant="h2" color="white">For any questions, reach out to support@Quickbetdmovies.com</Typography>
                 </Box>
-                ):(<Box display="flex" flexDirection="column" mt={10} gap={5}>
-                  <Typography variant='h2' textAlign="center" color="white">We love having you back</Typography>
+
+
+                <Box display="flex" gap={2} mb={2} mt={5}>
+                  <Button
+                    variant={selectedOption === 'Option 1' ? 'contained' : 'outlined'}
+                    color={selectedOption === 'Option 1' ? 'secondary' : 'primary'}
+                    onClick={() => handleSelectOption('Option 1')}
+                  >
+                    Sign up
+                  </Button>
+                  <Button
+                    variant={selectedOption === 'Option 2' ? 'contained' : 'outlined'}
+                    color={selectedOption === 'Option 2' ? 'secondary' : 'primary'}
+                    onClick={() => handleSelectOption('Option 2')}
+                  >
+                    Log in
+                  </Button>
+                </Box>
+
+                {selectedOption === 'Option 1' ? (
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    gap={10}
+                    mt={10}
+                    mb={5}
+                  >
+                    <Button
+                      fullWidth
+                      variant="contained"
+                      endIcon={<MailOutlineOutlined />}
+                      color="secondary"
+                      sx={{ p: 2 }}
+                    >
+                      Register with your Email
+                    </Button>
+                    <Typography variant="h6" color="white" textAlign="center">
+                      For any questions, reach out to support@Quickbetdmovies.com
+                    </Typography>
+                  </Box>
+                ) : (
+                  <Box
+                    display="flex"
+                    flexDirection="column"
+                    gap={2}
+                    mt={3}
+                  >
+                    <Typography variant="h6" textAlign="center" color="white">
+                      We love having you back
+                    </Typography>
+
                     <TextField
                       label="Email"
-                      id="Email"
-                      defaultValue=""
                       variant="filled"
-                      type={showPassword ? 'text' : 'password'}
                       InputProps={{
                         disableUnderline: true,
                         endAdornment: (
                           <InputAdornment position="end">
-                              <IconButton
-                                  onClick={() => setShowPassword(showPassword ? false : true)}
-                                  edge="end"
-                              >
-                                  {showPassword ? <Visibility /> : <VisibilityOff />}
-                              </IconButton>
+                            <IconButton
+                              onClick={() => setShowPassword(!showPassword)}
+                              edge="end"
+                            >
+                              {showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
                           </InputAdornment>
-                      ),
+                        ),
                       }}
                       sx={{
                         backgroundColor: 'white',
                         borderRadius: 2,
-                        '& .MuiInputLabel-root': {
-                          color: '#1C1C1C',
-                        },
+                        '& .MuiInputLabel-root': { color: '#1C1C1C' },
                         '& .MuiFilledInput-root': {
                           backgroundColor: 'white',
                           border: '1px solid #BDBDBD',
-                          '&:hover': {
-                            backgroundColor: '#F5F5F5',
-                            borderColor: '#757575',
-                          },
+                          '&:hover': { backgroundColor: '#F5F5F5', borderColor: '#757575' },
                           '&.Mui-focused': {
                             backgroundColor: 'white',
                             borderColor: '#1C1C1C',
@@ -247,38 +272,32 @@ export const MainPrincipal: FC<Props> = ({ window }) => {
                         },
                       }}
                     />
+
                     <TextField
                       label="Password"
-                      id="Password"
-                      defaultValue=""
                       variant="filled"
                       type={showPassword ? 'text' : 'password'}
                       InputProps={{
                         disableUnderline: true,
                         endAdornment: (
                           <InputAdornment position="end">
-                              <IconButton
-                                  onClick={() => setShowPassword(showPassword ? false : true)}
-                                  edge="end"
-                              >
-                                  {showPassword ? <Visibility /> : <VisibilityOff />}
-                              </IconButton>
+                            <IconButton
+                              onClick={() => setShowPassword(!showPassword)}
+                              edge="end"
+                            >
+                              {showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
                           </InputAdornment>
-                      ),
+                        ),
                       }}
                       sx={{
                         backgroundColor: 'white',
                         borderRadius: 2,
-                        '& .MuiInputLabel-root': {
-                          color: '#1C1C1C',
-                        },
+                        '& .MuiInputLabel-root': { color: '#1C1C1C' },
                         '& .MuiFilledInput-root': {
                           backgroundColor: 'white',
                           border: '1px solid #BDBDBD',
-                          '&:hover': {
-                            backgroundColor: '#F5F5F5',
-                            borderColor: '#757575',
-                          },
+                          '&:hover': { backgroundColor: '#F5F5F5', borderColor: '#757575' },
                           '&.Mui-focused': {
                             backgroundColor: 'white',
                             borderColor: '#1C1C1C',
@@ -286,44 +305,66 @@ export const MainPrincipal: FC<Props> = ({ window }) => {
                         },
                       }}
                     />
+
                     <Button
-                    fullWidth
-                    variant="contained"
-                    endIcon={<ConfirmationNumberOutlined/>}
-                    color='secondary'
-                    sx={{
-                      p:2
-                    }}
+                      fullWidth
+                      variant="contained"
+                      endIcon={<ConfirmationNumberOutlined />}
+                      color="secondary"
+                      sx={{ p: 2 }}
                     >
-                    Continue
+                      Continue
                     </Button>
-                    <Typography variant="h2" color="white">For any questions, reach out to support@Quickbetdmovies.com</Typography>
-                </Box>)
-              }
-              
-            </Box>
+                    <Typography variant="h6" color="white" textAlign="center">
+                      For any questions, reach out to support@Quickbetdmovies.com
+                    </Typography>
+                  </Box>
+                )}
+              </Box>
             </Grid>
-            <Grid size={{ xs: 12, md: 4 }} >
-              <Box display={{ xs: 'none', md: 'flex' }} flexDirection="column" bgcolor="#1C1C1C" width={'546px'} height={'691px'} borderRadius={2} gap={5} pt={10} px={5}>
-                <Typography variant='h1' textAlign="center" color="white" >{selectedOption === 'Option 1' ? 'Welcome to Quickbet Movies!' : 'Welcome back to Quickbet Movies!'}</Typography>
-                <Typography variant='h2' textAlign="center" color="white">{selectedOption === 'Option 1' ?'🎬 Ready to unlock a universe of cinematic delights? Sign up now and start your journey with us!':'🍿 Ready to dive into the world of unlimited entertainment? Enter your credentials and let the cinematic adventure begin!'}</Typography>
-                <Image
-                  src={selectedOption === 'Option 1' ?'/image/login.png':'/image/register.png'}
-                  alt='image principal'
-                  width={500}
-                  height={400}
-                  objectFit="cover"
-                  style={{
-                    
-                    bottom: 9,
-                    left: '50%',
-                    transform: 'translateX(60%)',
-                    borderRadius: '0 0 10px 10px',
-                  }}
-                />
+
+            <Grid size={{ xs: 12, md: 4 }}>
+              <Box
+                display={{ xs: 'none', md: 'flex' }}
+                flexDirection="column"
+                bgcolor="#1C1C1C"
+                width="100%"
+                height="100%"
+                borderRadius={2}
+                gap={8}
+                pt={3}
+                px={3}
+              >
+                <Typography
+                  variant="h5"
+                  textAlign="center"
+                  color="white"
+                >
+                  {selectedOption === 'Option 1'
+                    ? 'Welcome to Quickbet Movies!'
+                    : 'Welcome back to Quickbet Movies!'}
+                </Typography>
+                <Typography
+                  variant="body1"
+                  textAlign="center"
+                  color="white"
+                >
+                  {selectedOption === 'Option 1'
+                    ? '🎬 Ready to unlock a universe of cinematic delights? Sign up now and start your journey with us!'
+                    : '🍿 Ready to dive into the world of unlimited entertainment? Enter your credentials and let the cinematic adventure begin!'}
+                </Typography>
+                <Box  display={{sm:"none",md:"flex"}} justifyContent="center" alignItems="center" width="100%" p={2} mt={5}>
+                  <Image
+                    src={selectedOption === 'Option 1' ? '/image/login.png' : '/image/register.png'}
+                    alt="image principal"
+                    width={300}
+                    height={200}
+                  />
+                </Box>
               </Box>
             </Grid>
           </Grid>
+
         </Box>
       )}
 

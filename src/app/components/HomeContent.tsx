@@ -14,12 +14,10 @@ export const HomeContent = () => {
 
   const { movie, OneMovie, setMovies, setUneMovie } = useMovie();
 
-  console.log(movie,'movie',OneMovie);
-
   useEffect(() => {
     setMovies('53c529a91fe5cf5cc90471988fa1254f');
     setUneMovie('53c529a91fe5cf5cc90471988fa1254f','Kung Fu Panda 4')
-  }, [])
+  }, [setMovies, setUneMovie])
   
   return (
     <LayoutPrincipal>

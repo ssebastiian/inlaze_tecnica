@@ -1,17 +1,14 @@
 'use client';
 
-import React, { FC } from "react";
+import React, { FC, JSXElementConstructor, PropsWithChildren, ReactNode } from "react";
 import ThemeRegistry from "./ThemeRegistry";
 
-import { movieProvider } from "@/context";
+import { MovieProvider } from "@/context";
 import { ThemeToggleProvider } from "@/themes";
 
-/* import { ThemeToggleProvider } from "@/context/themes"; */
-
-
 interface ComponentProps {
-  components: Array<React.JSXElementConstructor<React.PropsWithChildren<unknown>>>
-  children: React.ReactNode
+  components: Array<JSXElementConstructor<PropsWithChildren<unknown>>>
+  children: ReactNode
 }
 
 function ComponentProvider(props: ComponentProps) {
@@ -33,7 +30,7 @@ export const Providers: FC<Props> = ({ children }) => {
 
   return (
         <ComponentProvider components={[
-          movieProvider,
+          MovieProvider,
         ]}>
           <ThemeToggleProvider>
             <ThemeRegistry options={{ key: 'mui' }}>

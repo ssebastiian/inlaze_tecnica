@@ -1,4 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Imagen Proyecto](public/image/Quickbet.png)
+
+
+# Guía de Instalación del Proyecto
+
+Este proyecto utiliza Yarn para la gestión de dependencias. Para instalar y poner en marcha el proyecto en tu máquina local, sigue los siguientes pasos:
+
+## Requisitos Previos
+
+Antes de comenzar, asegúrate de tener Node.js instalado en tu equipo. Puedes verificar si lo tienes ejecutando el siguiente comando en tu terminal:
+
+```bash
+node -v
+```
+
+Si no tienes Node.js instalado, puedes descargarlo desde su página oficial.
+
+## Paso 1: Verificar la existencia de los archivos esenciales
+
+Asegúrate de que los siguientes archivos estén presentes en el directorio del proyecto:
+
+1. yarn.lock
+Este archivo asegura que las versiones de las dependencias sean consistentes entre todos los miembros del equipo y los entornos de producción.
+
+2. .yarnrc.yml
+Este archivo de configuración es necesario para evitar problemas durante la instalación de módulos. Verifica que contenga lo siguiente:
+
+```bash
+imagencompressionLevel: mixed
+
+enableGlobalCache: false
+
+nodeLinker: node-modules
+```
+
+# Paso 2: Instalar las dependencias
+
+Con los archivos verificados, ahora puedes proceder a instalar las dependencias del proyecto. Para ello, ejecuta el siguiente comando en tu terminal:
+
+```bash
+yarn install 
+```
+
+# Paso 3: Iniciar el proyecto
+
+Una vez que las dependencias estén instaladas, puedes iniciar el servidor de desarrollo ejecutando:
+
+```bash
+yarn dev
+```
+
+Esto iniciará la aplicación en el servidor local, y podrás acceder a ella en el navegador.
+
+# IMAGEN DE LOS ARCHIVOS A TENER EN CUENTA PARA CORRER EL PROYECTO 
+
+![Documentacion](public/image/instalacion.png)
+
+
 
 ## Getting Started
 

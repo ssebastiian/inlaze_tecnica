@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import { Box, Typography, TextField, InputAdornment, FormControl, InputLabel, Select, MenuItem } from '@mui/material'
 import { SearchOutlined } from '@mui/icons-material'
@@ -10,7 +12,7 @@ const genres = [
   
 export const MainLateral = () => {
 
-    const [genre, setGenre] = useState('');
+    const [genre] = useState('');
       
     return (
     

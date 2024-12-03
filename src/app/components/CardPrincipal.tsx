@@ -75,9 +75,6 @@ export const CardPrincipal: FC<Props> = ({ movie }) => {
                 </Box>
               </Grid>
             </Grid>
-              
-
-
           </CardContent>
         </>
       ) : (

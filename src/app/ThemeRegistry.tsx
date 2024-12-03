@@ -1,15 +1,16 @@
-'use client';
-
+'use client'
 import { useState } from 'react';
 import { useServerInsertedHTML } from 'next/navigation';
-
-import createCache from '@emotion/cache';
+import createCache, { Options } from '@emotion/cache';
 import { CacheProvider, ThemeProvider } from '@emotion/react';
 import { lightTheme } from '@/themes';
 
-export default function ThemeRegistry(props: { options: any; children: React.ReactNode; }) {
-  const { options, children } = props;
+interface ThemeRegistryProps {
+  options: Options;
+  children: React.ReactNode;
+}
 
+export default function ThemeRegistry({ options, children }: ThemeRegistryProps) {
   const [{ cache, flush }] = useState(() => {
     const cache = createCache(options);
     

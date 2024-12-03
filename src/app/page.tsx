@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: 'Mejor sitio de películas',
   keywords: ['QUICKBET','Quickbet'],
   icons: {
-    icon: '/image/LogoVeoanime.png'
+    icon: '/image/Quickbet.png'
   }
 };
 

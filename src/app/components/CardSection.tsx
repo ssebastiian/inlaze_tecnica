@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Box, Card, CardContent, Typography, IconButton, CircularProgress, CardMedia, useTheme, alpha } from '@mui/material';
+import { Box, Card, CardContent, Typography, IconButton, CircularProgress, CardMedia, useTheme, alpha, Link } from '@mui/material';
 import FavoriteOutlined from '@mui/icons-material/FavoriteOutlined';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -102,6 +102,19 @@ export const CardSection: FC<Props> = ({ movies, title }) => {
                     </Box> 
                   </Box>
                 </CardContent>
+                <Link
+                    href={`/movie/${movie.id}`}
+                    color="inherit"
+                    sx={{ 
+                        textDecoration: 'none',
+                        position: 'absolute', 
+                        width: '100%', 
+                        height: '100%', 
+                        top: 0, 
+                        left: 0, 
+                        zIndex: 0 
+                    }} 
+                />
               </Card>
             </SwiperSlide>
           ))}

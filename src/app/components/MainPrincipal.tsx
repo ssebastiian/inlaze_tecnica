@@ -47,7 +47,7 @@ export const MainPrincipal: FC<Props> = ({ window }) => {
       <CssBaseline />
       <AppBar component="nav" sx={{ backgroundColor: alpha(theme.palette.primary.main, 0.6), boxShadow: 'none' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Box display="flex" alignItems="center" ml={10} mr={5}>
+          <Box display="flex" alignItems="center" ml={{xs:0,md:10}} mr={5}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
